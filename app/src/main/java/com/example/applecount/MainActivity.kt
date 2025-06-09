@@ -11,16 +11,11 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.applecount.ui.theme.AppleCountTheme
-import com.example.applecount.AppleCountViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 
 class MainActivity : ComponentActivity() {
@@ -57,14 +52,14 @@ fun AppleCount(
     val text = viewModel.text.value
 
     Box(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ){
         OutlinedTextField(
             value = text,
             onValueChange = { newText -> viewModel.onTextChanged(newText) },
             label = { Text("りんごの数を入力してください") },
-            modifier = Modifier.padding(16.dp),
+            modifier = modifier.padding(16.dp),
             singleLine = true,
         )
     }
